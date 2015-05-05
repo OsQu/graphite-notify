@@ -23,6 +23,7 @@ module Capistrano
             uri = URI(graphite_url)
             http = Net::HTTP.new(uri.host, uri.port)
             http.use_ssl = true if uri.scheme == 'https'
+            http.verify_mode = graphite_ssl_verify if respond_to?(:graphite_ssl_verify)
             begin
               http.start  do |h|
                 if respond_to?(:stage)

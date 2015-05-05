@@ -14,6 +14,12 @@ set :graphite_url, "your/graphite/event/url"
 require "graphite-notify/capistrano"
 ```
 
+It is possible to set ssl verify modes with `graphite_ssl_verify` variable:
+
+```
+set :graphite_ssl_verify, OpenSSL::SSL::VERIFY_PEER
+```
+
 ## Requirements
 
 graphite: http://readthedocs.org/docs/graphite
